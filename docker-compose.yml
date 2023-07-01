@@ -14,12 +14,22 @@ services:
       - '8080:3000'
     depends_on:
       - api
+    networks:
+      - ambiente_dev
   db:
-    image: mysql:latest
+    image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: database
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: database_dev
+      MYSQL_USER: user_database
+      MYSQL_PASSWORD: 123456
     ports:
-      - '3306:3306'
+      - '3366:3306'
+    networks:
+      - ambiente_dev
+
+
+networks:
+  ambiente_dev:
+    driver: bridge
+
