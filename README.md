@@ -1,1 +1,1 @@
-# nuxt_api_typescript
+sudo docker-compose build --no-cache
